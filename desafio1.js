@@ -12,19 +12,29 @@ class ProductManager{
     }
 
     
+    addProduct(tittle, description,price,thumbnail,code,stock){
+        let listaNueva = {};
+        listaNueva.id = ProductManager.id;
+        listaNueva.product = [];
+        listaNueva.tittle = tittle;
+        listaNueva.description = description;
+        listaNueva.price = price;
+        listaNueva.thumbnail = thumbnail;
+        listaNueva.code = code;
+        listaNueva.stock = stock;
+        ProductManager.id++;
 
-
-    addProduct(product){
-        let listaNueva = this.product;
         for(const productos of this.product){
             if(productos.tittle === ""|| productos.description === ""||productos.price < 0|| productos.stock < 0){
                 console.log("todos los espacios deben estar completos")
-            }else if(productos.code === product.code){
+            }else if(productos.code === this.code){
                 console.log("Campo repetido")
             }else{
-                listaNueva.push()
+                this.product.push(listaNueva)
             }
         }
+
+        console.log(listaNueva)
 }
 
     getProducts(){
@@ -46,9 +56,16 @@ let producto1 = new ProductManager ();
 let producto2 = new ProductManager ();
 
 
-producto1.addProduct({tittle:"producto prueba3", description:"Este es un producto prueba3", price: 3000 , thumbnail: "sin imagen3", id: "abc1233", stock:253})
+producto1.addProduct({tittle:"producto prueba3", description:"Este es un producto prueba3", price: 3000 , thumbnail: "sin imagen3", code: "abc1233", stock:253})
 
-console.log(ProductManager.Products)
+producto2.addProduct({tittle:"producto prueba3", description:"Este es un producto prueba3", price: 3000 , thumbnail: "sin imagen3", code: "abc1233", stock:253})
+
+
+
+
+
+
+
 
 
 
