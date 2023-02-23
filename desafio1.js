@@ -28,11 +28,16 @@ class ProductManager{
 }
 
     getProducts(){
-       return this.addProduct.listaNueva
+       return this.product
     }
 
     getProductbyId(){
-
+        for(const element of this.product)
+        if(element.id === this.code){
+            console.log(`Id relacionado al producto ${this.tittle}`) 
+        } else {
+            return console.log("Articulo no encontrado.")
+        }
     }
 }
 
