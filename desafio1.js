@@ -5,10 +5,14 @@ class ProductManager{
 
     static id = 0;
 
+    getProducts(){
+        return this.product
+    }
+
     addProduct(tittle,description,price,thumbnail,code,stock){
-        const codigoDuplicado = this.products.filter((product) => product.code === code);
+        const codigoDuplicado = this.product.filter((product) => product.code === code);
         if (codigoDuplicado.length !== 0) {
-            return `This code (${code}) already exists`;
+            return `Codigo repetido`;
             }else {
                 const Product ={
                     id : ProductManager.id + 1,
@@ -21,19 +25,17 @@ class ProductManager{
                 }
                 ProductManager.id++;
 
-                this.products.push(Product);
+                this.product.push(Product);
                 return this.products;   
 
                 
             }
     }
 
-    getProducts(){
-       return this.product
-    }
+  
 
     getProductbyId(id){
-        const idRepeat = this.products.filter((product) => product.id === id);
+        const idRepeat = this.product.filter((product) => product.id === id);
         if (idRepeat) {
             return idRepeat;
         } else {
@@ -46,13 +48,19 @@ class ProductManager{
 
 
 let producto1 = new ProductManager (); 
-
 let producto2 = new ProductManager ();
+producto1.getProducts()
+producto1.addProduct("producto prueba", "esto no es un producto prueba", 200, "sin imagen", "adc123", 25)
+console.log(producto1.getProducts())
+producto2.addProduct("producto prueba2", "esto no es un producto prueba2", 2000, "sin imagen2", "adc1234", 250)
+console.log(producto2.getProducts())
 
 
-producto1.addProduct({tittle:"producto prueba3", description:"Este es un producto prueba3", price: 3000 , thumbnail: "sin imagen3", code: "abc1233", stock:253})
 
-console.log(ProductManager.listaNueva)
+
+
+
+
 
 
 
